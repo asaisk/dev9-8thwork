@@ -4,22 +4,21 @@ include("functions.php");
 // $id = $_GET["id"];
 
 if(
-  !isset($_POST["date"]) || $_POST["date"]=="" ||
   !isset($_POST["name"]) || $_POST["name"]=="" ||
-  !isset($_POST["place"]) || $_POST["place"]=="" ||
-  !isset($_POST["distance"]) || $_POST["distance"]=="" ||
-  !isset($_POST["comment"]) || $_POST["comment"]==""
+  !isset($_POST["lid"]) || $_POST["lid"]=="" ||
+  !isset($_POST["lpw"]) || $_POST["lpw"]=="" ||
+  !isset($_POST["kanri_flg"]) || $_POST["kanri_flg"]=="" ||
+  !isset($_POST["life_flg"]) || $_POST[""]=="life_flg"
 ){
   exit('ParamError');
 }
 
 //1. POSTデータ取得
-$date   = $_POST["date"];
 $name  = $_POST["name"];
-$place = $_POST["place"];
-$distance = $_POST["distance"];
-$comment = $_POST["comment"];
-
+$lid = $_POST["lid"];
+$lpw = $_POST["lpw"];
+$kanri_flg = $_POST["kanri_flg"];
+$life_flg   = $_POST["life_flg"];
 
 
 //2. DB接続します(エラー処理追加)
@@ -31,13 +30,13 @@ $comment = $_POST["comment"];
 $pdo=db_con();
 
 //３．データ登録SQL作成
-$stmt = $pdo->prepare("INSERT INTO gs_bm_table(id, date, name, place,
-distance,comment,time )VALUES(NULL, :a1, :a2, :a3, :a4, :a5,sysdate())");
-$stmt->bindValue(':a1', $date);
-$stmt->bindValue(':a2', $name);
-$stmt->bindValue(':a3', $place);
-$stmt->bindValue(':a4', $distance);
-$stmt->bindValue(':a5', $comment);
+$stmt = $pdo->prepare("INSERT INTO gs_user_table (id_user,name,lid,lpw,kanri_flg,life_flg)
+ VALUES(NULL, :a1, :a2, :a3, :a4, :a5)");
+$stmt->bindValue(':a1', $name);
+$stmt->bindValue(':a2', $lid);
+$stmt->bindValue(':a3', $lpw);
+$stmt->bindValue(':a4', $kanri_flg);
+$stmt->bindValue(':a5', $life_flg);
 
 $status = $stmt->execute();
 
@@ -47,7 +46,7 @@ if($status==false){
   error_db_Info($stmt);   
 }else{
   //５．index.phpへリダイレクト
-  header("Location: index.php");
+  header("Location: index_user.php");
   exit;
 }
 

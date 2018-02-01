@@ -1,9 +1,9 @@
 <?php
 //index.php（登録フォームの画面ソースコードを全コピーして、このファイルをまるっと上書き保存）
 
-$id = $_GET["id"];
+$id_user = $_GET["id_user"];
 
-// echo "GET:".$id;
+//  echo "GET:".$id_user";
 
 //1.  DB接続します
 try {
@@ -13,8 +13,8 @@ try {
   }
   
   //２．データ登録SQL作成
-  $stmt = $pdo->prepare("SELECT * FROM gs_bm_table WHERE id=:id");
-  $stmt->bindvalue(":id",$id, PDO::PARAM_INT);
+  $stmt = $pdo->prepare("SELECT * FROM gs_user_table WHERE id_user=:id_user");
+  $stmt->bindvalue(":id_user",$id_user, PDO::PARAM_INT);
   $status = $stmt->execute();
   
   
@@ -52,23 +52,23 @@ try {
 <header>
   <nav class="navbar navbar-default">
     <div class="container-fluid">
-    <div class="navbar-header"><a class="navbar-brand" href="select.php">データ一覧</a></div>
+    <div class="navbar-header"><a class="navbar-brand" href="select_user.php">データ一覧</a></div>
   </nav>
 </header>
 <!-- Head[End] -->
 
 <!-- Main[Start] -->
-<form method="post" action="update.php"> 
+<form method="post" action="update_user.php"> 
   <div class="jumbotron">
    <fieldset>
-    <legend>ランニング記録</legend>
-     <label>日付：<input type="text" name="date" value="<?=$row["date"]?>"></label><br>
-     <label>名前：<input type="text" name="name" value="<?=$row["name"]?>"></label><br>
-     <label>場所：<input type="text" name="place" value="<?=$row["place"]?>"></label><br>
-     <label>距離：<input type="number" name="distance" value="<?=$row["distance"]?>"></label><br>
-     <label><textArea name="comment" rows="4" cols="40"><?=$row["comment"]?></textArea></label><br>
-     <input type="submit" value="送信">
-     <input type="hidden" name="id" value="<?=$id?>">
+    <legend>ユーザー記録</legend>
+    <label>名前     ：<input type="text" name="name"></label><br>
+    <label>ID       ：<input type="text" name="lid"></label><br>
+    <label>パスワード：<input type="text" name="lpw"></label><br>
+    <label>管理フラグ：<input type="number" name="kanri_flg"></label><br>
+    <label>使用フラグ：<input type="number" name="life_flg"></label><br>
+    <input type="submit" value="送信">
+     <input type="hidden" name="id_user" value="<?=$id_user?>">
     </fieldset>
   </div>
 </form>

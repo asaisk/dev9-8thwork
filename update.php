@@ -2,18 +2,27 @@
 //入力チェック(受信確認処理追加)
 if(
   !isset($_POST["id"]) || $_POST["id"]=="" ||
+  !isset($_POST["date"]) || $_POST["date"]=="" ||
   !isset($_POST["name"]) || $_POST["name"]=="" ||
-  !isset($_POST["email"]) || $_POST["email"]=="" ||
-  !isset($_POST["naiyou"]) || $_POST["naiyou"]==""
+  !isset($_POST["place"]) || $_POST["place"]=="" ||
+  !isset($_POST["distance"]) || $_POST["distance"]=="" ||
+  !isset($_POST["comment"]) || $_POST["comment"]==""
+
+
 ){
   exit('ParamError');
 }
 
 //1. POSTデータ取得
-$id= $_POST["id"];
-$name   = $_POST["name"];
-$email  = $_POST["email"];
-$naiyou = $_POST["naiyou"];
+$id = $_POST["id"];
+$date = $_POST["date"];
+$name = $_POST["name"];
+$place = $_POST["place"];
+$distance = $_POST["distance"];
+$comment = $_POST["comment"];
+
+
+
 
 //2. DB接続します(エラー処理追加)
 try {
@@ -24,11 +33,14 @@ try {
 
 
 //３．データ登録SQL作成
-$stmt = $pdo->prepare("UPDATE gs_an_table SET name=:name,email=:email,naiyou=:naiyou WHERE id=:id");
-$stmt->bindValue(':name', $name,PDO::PARAM_STR);
-$stmt->bindValue(':email', $email,PDO::PARAM_STR);
-$stmt->bindValue(':naiyou', $naiyou,PDO::PARAM_STR);
+$stmt = $pdo->prepare("UPDATE gs_bm_table SET date=:date,name=:name,place=:place,distance=:distance,comment=:comment WHERE id=:id");
 $stmt->bindValue(':id', $id,PDO::PARAM_INT);
+$stmt->bindValue(':date', $date,PDO::PARAM_STR);
+$stmt->bindValue(':name', $name,PDO::PARAM_STR);
+$stmt->bindValue(':place', $place,PDO::PARAM_STR);
+$stmt->bindValue(':distance',$distance,PDO::PARAM_INT);
+$stmt->bindValue(':comment',$comment,PDO::PARAM_STR);
+
 
 $status = $stmt->execute();
 

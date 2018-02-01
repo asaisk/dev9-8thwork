@@ -10,7 +10,7 @@ $pdo=db_con();
 
 
   //２．データ登録SQL作成
-  $stmt = $pdo->prepare("DELETE  FROM gs_an_table WHERE id=:id");
+  $stmt = $pdo->prepare("DELETE  FROM gs_bm_table WHERE id=:id");
   $stmt->bindvalue(":id",$id, PDO::PARAM_INT);
   $status = $stmt->execute();
   
