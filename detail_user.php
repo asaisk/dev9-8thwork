@@ -1,7 +1,7 @@
 <?php
 //index.php（登録フォームの画面ソースコードを全コピーして、このファイルをまるっと上書き保存）
 
-$id_user = $_GET["id_user"];
+$id_user = $_GET["id"];
 
 //  echo "GET:".$id_user";
 
@@ -62,11 +62,11 @@ try {
   <div class="jumbotron">
    <fieldset>
     <legend>ユーザー記録</legend>
-    <label>名前     ：<input type="text" name="name"></label><br>
-    <label>ID       ：<input type="text" name="lid"></label><br>
-    <label>パスワード：<input type="text" name="lpw"></label><br>
-    <label>管理フラグ：<input type="number" name="kanri_flg"></label><br>
-    <label>使用フラグ：<input type="number" name="life_flg"></label><br>
+    <label>名前     ：<input type="text" name="name" value="<?=$row["name"]?>"></label><br>
+    <label>ID       ：<input type="text" name="lid" value="<?=$row["lid"]?>"></label><br>
+    <label>パスワード：<input type="text" name="lpw" value="<?=$row["lpw"]?>"></label><br>
+    <label>管理フラグ：<input type="number" name="kanri_flg" value="<?=$row["kanri_flg"]?>"></label><br>
+    <label>使用フラグ：<input type="number" name="life_flg" value="<?=$row["life_flg"]?>"></label><br>
     <input type="submit" value="送信">
      <input type="hidden" name="id_user" value="<?=$id_user?>">
     </fieldset>

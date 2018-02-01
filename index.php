@@ -10,10 +10,17 @@
 
 <!-- Head[Start] -->
 <header>
-  <nav class="navbar navbar-default">
-    <div class="container-fluid">
-    <div class="navbar-header"><a class="navbar-brand" href="select.php">データ一覧</a></div>
+    <nav class="navbar navbar-default" >
+    <div class="container-fluid"> 
+    <div class="navbar-header"><a class="navbar-brand" href="select.php">データ一覧
+    <div class="navbar-header"><a class="navbar-brand" href="select_user.php">ユーザー一覧
+    </a></div>
   </nav>
+
+
+  <!-- <div class="navbar-header"><a class="navbar-brand" href="select_user.php">ユーザー一覧 -->
+
+
 </header>
 <!-- Head[End] -->
 

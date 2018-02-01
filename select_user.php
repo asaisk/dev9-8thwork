@@ -29,12 +29,12 @@ if($status==false){
     $view .='<a href="detail_user.php?id='.$result["id_user"].'">'; 
     // $view .= $result["date"]."[".$result["date"]."]";
     $view .= "[ ".$result["name"]." ]"."[ ".$result["lid"]." ]";
-    // $view .= $result["place"]."[".$result["indate"]."]";
+    $view .= "[ ".$result["kanri_flg"]." ]"."[".$result["life_flg"]."]";
     // $view .= $result["name"]."[".$result["indate"]."]";
     $view .='</a>';
     $view .='';
 
-   $view .='<a href="delete.php?id_user='.$result["id_user"].'">'; 
+   $view .='<a href="delete_user.php?id='.$result["id_user"].'">'; 
    $view .= '削除';
    $view .='</a>';
 
@@ -62,7 +62,8 @@ if($status==false){
   <nav class="navbar navbar-default">
     <div class="container-fluid">
       <div class="navbar-header">
-      <a class="navbar-brand" href="index_user.php">データ登録</a>
+      <a class="navbar-brand" href="index_user.php">ユーザー登録</a>
+      <a class="navbar-brand" href="index.php">データ登録</a>
     </div>
   </nav>
 </header>
