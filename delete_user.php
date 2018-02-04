@@ -2,7 +2,7 @@
 //index.php（登録フォームの画面ソースコードを全コピーして、このファイルをまるっと上書き保存）
 include("functions.php");
 
-$id_user = $_GET["id"];
+$id = $_GET["id"];
 
 // echo "GET:".$id;
 
@@ -11,8 +11,8 @@ $pdo=db_con();
 
 
   //２．データ登録SQL作成
-  $stmt = $pdo->prepare("DELETE FROM gs_user_table WHERE id_user=:id_user");
-  $stmt->bindvalue(":id_user",$id_user, PDO::PARAM_INT);
+  $stmt = $pdo->prepare("DELETE FROM gs_user_table WHERE id =:id");
+  $stmt->bindvalue(":id",$id, PDO::PARAM_INT);
   $status = $stmt->execute();
   
   

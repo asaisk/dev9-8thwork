@@ -1,17 +1,19 @@
 <?php
 //入力チェック(受信確認処理追加)
 if(
+    !isset($_POST["id"]) || $_POST["id"]=="" ||
     !isset($_POST["name"]) || $_POST["name"]=="" ||
     !isset($_POST["lid"]) || $_POST["lid"]=="" ||
     !isset($_POST["lpw"]) || $_POST["lpw"]=="" ||
     !isset($_POST["kanri_flg"]) || $_POST["kanri_flg"]=="" ||
-    !isset($_POST["life_flg"]) || $_POST[""]=="life_flg"
+    !isset($_POST["life_flg"]) || $_POST["life_flg"]==""
 
 ){
   exit('ParamError');
 }
 
 //1. POSTデータ取得
+$id= $_POST["id"];
 $name  = $_POST["name"];
 $lid = $_POST["lid"];
 $lpw = $_POST["lpw"];
@@ -30,9 +32,8 @@ try {
 
 
 //３．データ登録SQL作成
-$stmt = $pdo->prepare("UPDATE gs_user_table SET name=:name,lid=:lid,
-lpw=:lpw,kanri_flg=:kanri_flg,life_flg=:life_flg WHERE id_user=:id_user");
-$stmt->bindValue(':id_user', $id_user,PDO::PARAM_INT);
+$stmt = $pdo->prepare("UPDATE gs_user_table SET name=:name,lid=:lid,lpw=:lpw,kanri_flg=:kanri_flg,life_flg=:life_flg WHERE id=:id");
+$stmt->bindValue(':id', $id,PDO::PARAM_INT);
 $stmt->bindValue(':name', $name,PDO::PARAM_STR);
 $stmt->bindValue(':lid', $lid,PDO::PARAM_STR);
 $stmt->bindValue(':lpw', $lpw,PDO::PARAM_STR);

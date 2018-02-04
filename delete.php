@@ -22,7 +22,7 @@ $pdo=db_con();
     error_db_Info($stmt);    
 
   }else{
-      header("Location: select.php");
+      header("Location: select_1.php");
       exit();
     //    <!-- $row= $stmt->fetch(); -->
     //Selectデータの数だけ自動でループしてくれる

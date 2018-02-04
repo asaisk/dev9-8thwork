@@ -13,7 +13,7 @@
     <nav class="navbar navbar-default" >
     <div class="container-fluid"> 
     <div class="navbar-header"><a class="navbar-brand" href="select_1.php">データ一覧</a>
-    <!-- 　　　　　　　　　　　　　　　<a class="navbar-brand" href="select_user.php">ユーザー一覧 -->
+    　　　　　　　　　　　　　　　<a class="navbar-brand" href="select_user.php">ユーザー一覧
     </a></div>
   </nav>
 

@@ -1,14 +1,14 @@
 <?php
 //入力チェック(受信確認処理追加)
 include("functions.php");
-// $id = $_GET["id"];
+$id = $_GET["id"];
 
 if(
   !isset($_POST["name"]) || $_POST["name"]=="" ||
   !isset($_POST["lid"]) || $_POST["lid"]=="" ||
   !isset($_POST["lpw"]) || $_POST["lpw"]=="" ||
   !isset($_POST["kanri_flg"]) || $_POST["kanri_flg"]=="" ||
-  !isset($_POST["life_flg"]) || $_POST[""]=="life_flg"
+  !isset($_POST["life_flg"]) || $_POST["life_flg"]==""
 ){
   exit('ParamError');
 }
@@ -30,7 +30,7 @@ $life_flg   = $_POST["life_flg"];
 $pdo=db_con();
 
 //３．データ登録SQL作成
-$stmt = $pdo->prepare("INSERT INTO gs_user_table (id_user,name,lid,lpw,kanri_flg,life_flg)
+$stmt = $pdo->prepare("INSERT INTO gs_user_table (id,name,lid,lpw,kanri_flg,life_flg)
  VALUES(NULL, :a1, :a2, :a3, :a4, :a5)");
 $stmt->bindValue(':a1', $name);
 $stmt->bindValue(':a2', $lid);

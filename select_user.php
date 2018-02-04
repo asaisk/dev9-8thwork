@@ -1,4 +1,6 @@
 <?php
+
+
 //1.  DB接続します
 
 include("functions.php");
@@ -26,15 +28,18 @@ if($status==false){
   //Selectデータの数だけ自動でループしてくれる
   while( $result = $stmt->fetch(PDO::FETCH_ASSOC)){
     $view .='<p>';
-    $view .='<a href="detail_user.php?id='.$result["id_user"].'">'; 
+    $view .='<a href="detail_user.php?id='.$result["id"].'">'; 
     // $view .= $result["date"]."[".$result["date"]."]";
-    $view .= "[ ".$result["name"]." ]"."[ ".$result["lid"]." ]";
-    $view .= "[ ".$result["kanri_flg"]." ]"."[".$result["life_flg"]."]";
+    $view .= "[ ".$result["name"]." ]";
+    $view .= "[ ".$result["lid"]." ]";
+    $view .= "[ ".$result["lpw"]." ]";
+    $view .= "[ ".$result["kanri_flg"]." ]";
+    $view.=  "[ ".$result["life_flg"]."]";
     // $view .= $result["name"]."[".$result["indate"]."]";
     $view .='</a>';
     $view .='';
 
-   $view .='<a href="delete_user.php?id='.$result["id_user"].'">'; 
+   $view .='<a href="delete_user.php?id='.$result["id"].'">'; 
    $view .= '削除';
    $view .='</a>';
 
@@ -70,6 +75,12 @@ if($status==false){
 <!-- Head[End] -->
 
 <!-- Main[Start] -->
+
+<table id="table1" border='1' align=center width="1000">
+<tr><th>名前</th><th>ID</th><th>パスワード</th><th>管理フラグ</th><th>利用フラグ</th><th>削除</th></tr>
+
+
+
 <div>
     <div class="container jumbotron"><?=$view?></div>
   </div>

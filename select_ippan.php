@@ -12,7 +12,7 @@
   </html>
   
   <table id="table1" border='1' align=center width="1000">
-  <tr><th>日付</th><th>名前</th><th>場所</th><th>距離</th><th>コメント</th><th>削除</th></tr>
+  <tr><th>日付</th><th>名前</th><th>場所</th><th>距離</th><th>コメント</th></tr>
 
 </html>  
 
@@ -61,7 +61,7 @@ if($status==false){
       // $view .= "<td><tr>".$result["date"]."</tr></td>";
       // $view .= "<td><tr></tr></td>";
       $view .= "<td>".$result["date"]."</td>"; 
-      $view .= '<td><a href="detail.php?id='.$result["id"].'">'.$result["name"]."</td>";
+      $view .= "<td>".$result["name"]."</td>";
      // $view .= "<td>".$result["name"]."</td>";
       $view .= "<td>".$result["place"]."</td>";
       $view .= "<td>".$result["distance"]."</td>";
@@ -69,12 +69,12 @@ if($status==false){
     // $view .= .$result["name"].$result["place"].$result["date"];
     // $view .= $result["place"]."[".$result["indate"]."]";
     // $view .= $result["name"]."[".$result["indate"]."]";
-    $view .='<td></a>';
-    $view .='';
+  //   $view .='<td></a>';
+  //   $view .='';
 
-   $view .='<a href="delete.php?id='.$result["id"].'">'; 
-   $view .= '削除';
-   $view .='</a></td>';
+  //  $view .='<a href="delete.php?id='.$result["id"].'">'; 
+  //  $view .= '削除';
+  //  $view .='</a></td>';
 
 
     $view .='</tr>';
@@ -102,7 +102,8 @@ if($status==false){
   <nav class="navbar navbar-default">
     <div class="container-fluid">
       <div class="navbar-header">
-      <a class="navbar-brand" href="index.php">データ登録</a>
+      <a class="navbar-brand" href="index_user.php">ユーザー登録</a>
+      <p>データ一覧です！</p>
     </div>
   </nav>
 </header>

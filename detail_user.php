@@ -1,7 +1,7 @@
 <?php
 //index.php（登録フォームの画面ソースコードを全コピーして、このファイルをまるっと上書き保存）
 
-$id_user = $_GET["id"];
+$id = $_GET["id"];
 
 //  echo "GET:".$id_user";
 
@@ -13,8 +13,8 @@ try {
   }
   
   //２．データ登録SQL作成
-  $stmt = $pdo->prepare("SELECT * FROM gs_user_table WHERE id_user=:id_user");
-  $stmt->bindvalue(":id_user",$id_user, PDO::PARAM_INT);
+  $stmt = $pdo->prepare("SELECT * FROM gs_user_table WHERE id=:id");
+  $stmt->bindvalue(":id",$id, PDO::PARAM_INT);
   $status = $stmt->execute();
   
   
@@ -59,16 +59,16 @@ try {
 
 <!-- Main[Start] -->
 <form method="post" action="update_user.php"> 
-  <div class="jumbotron">
+  <div class="jumbotron_1">
    <fieldset>
     <legend>ユーザー記録</legend>
-    <label>名前     ：<input type="text" name="name" value="<?=$row["name"]?>"></label><br>
-    <label>ID       ：<input type="text" name="lid" value="<?=$row["lid"]?>"></label><br>
+    <label>名前：<input type="text" name="name" value="<?=$row["name"]?>"></label><br>
+    <label>ID：<input type="text" name="lid" value="<?=$row["lid"]?>"></label><br>
     <label>パスワード：<input type="text" name="lpw" value="<?=$row["lpw"]?>"></label><br>
     <label>管理フラグ：<input type="number" name="kanri_flg" value="<?=$row["kanri_flg"]?>"></label><br>
     <label>使用フラグ：<input type="number" name="life_flg" value="<?=$row["life_flg"]?>"></label><br>
     <input type="submit" value="送信">
-     <input type="hidden" name="id_user" value="<?=$id_user?>">
+     <input type="hidden" name="id" value="<?=$id?>">
     </fieldset>
   </div>
 </form>
