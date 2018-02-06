@@ -69,14 +69,7 @@ if($status==false){
     // $view .= .$result["name"].$result["place"].$result["date"];
     // $view .= $result["place"]."[".$result["indate"]."]";
     // $view .= $result["name"]."[".$result["indate"]."]";
-    $view .='<td></a>';
-    $view .='';
-
-   $view .='<a href="delete.php?id='.$result["id"].'">'; 
-   $view .= '削除';
-   $view .='</a></td>';
-
-
+    $view .='<td><a href="delete.php?id='.$result["id"].'">'.'削除'.'</td>';
     $view .='</tr>';
   }
 } 

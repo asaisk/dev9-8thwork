@@ -27,24 +27,17 @@ if($status==false){
 }else{
   //Selectデータの数だけ自動でループしてくれる
   while( $result = $stmt->fetch(PDO::FETCH_ASSOC)){
-    $view .='<p>';
-    $view .='<a href="detail_user.php?id='.$result["id"].'">'; 
+    $view .='<tr>';
+    // $view .='<a href="detail_user.php?id='.$result["id"].'">'; 
     // $view .= $result["date"]."[".$result["date"]."]";
-    $view .= "[ ".$result["name"]." ]";
-    $view .= "[ ".$result["lid"]." ]";
-    $view .= "[ ".$result["lpw"]." ]";
-    $view .= "[ ".$result["kanri_flg"]." ]";
-    $view.=  "[ ".$result["life_flg"]."]";
+    $view .= '<td><a href="detail_user.php?id='.$result["id"].'">'.$result["name"]."</td>";
+    $view .= "<td>".$result["lid"]."</td>";
+    $view .= "<td>".$result["lpw"]."</td>";
+    $view .= "<td>".$result["kanri_flg"]."</td>";
+    $view.=  "<td>".$result["life_flg"]."</td>";
     // $view .= $result["name"]."[".$result["indate"]."]";
-    $view .='</a>';
-    $view .='';
-
-   $view .='<a href="delete_user.php?id='.$result["id"].'">'; 
-   $view .= '削除';
-   $view .='</a>';
-
-
-    $view .='</p>';
+    $view .='<td><a href="delete_user.php?id='.$result["id"].'">'.'削除'.'</td>';
+   $view .='</tr>';
   }
 }
 ?>
@@ -77,7 +70,7 @@ if($status==false){
 <!-- Main[Start] -->
 
 <table id="table1" border='1' align=center width="1000">
-<tr><th>名前</th><th>ID</th><th>パスワード</th><th>管理フラグ</th><th>利用フラグ</th><th>削除</th></tr>
+<tr><th>名前</th><th>ID</th><th>パスワード</th><th>管理フラグ：1管理者</th><th>利用フラグ0:使用中</th><th>削除</th></tr>
 
 
 
