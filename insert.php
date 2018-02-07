@@ -3,6 +3,10 @@
 include("functions.php");
 // $id = $_GET["id"];
 
+if($_SERVER["REQUEST_METHOD"]=="POST"){
+
+
+
 if(
   !isset($_POST["date"]) || $_POST["date"]=="" ||
   !isset($_POST["name"]) || $_POST["name"]=="" ||
@@ -50,6 +54,7 @@ if($status==false){
   header("Location: index.php");
   exit;
 }
+}else{ exit();} 
 
 ?>
 

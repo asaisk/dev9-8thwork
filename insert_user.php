@@ -1,6 +1,9 @@
 <?php
 //入力チェック(受信確認処理追加)
 include("functions.php");
+if($_SERVER["REQUEST_METHOD"]=="POST"){
+
+
 $id = $_GET["id"];
 
 if(
@@ -49,6 +52,7 @@ if($status==false){
   header("Location: index_user.php");
   exit;
 }
+}else{ exit();} 
 
 ?>
 
