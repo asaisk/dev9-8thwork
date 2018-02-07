@@ -59,7 +59,6 @@ if($status==false){
    
 
       // $view .= "<td><tr>".$result["date"]."</tr></td>";
-      // $view .= "<td><tr></tr></td>";
       $view .= "<td>".$result["date"]."</td>"; 
       $view .= '<td><a href="detail.php?id='.$result["id"].'">'.$result["name"]."</td>";
      // $view .= "<td>".$result["name"]."</td>";
