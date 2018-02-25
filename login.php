@@ -3,42 +3,44 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width">
-<link rel="stylesheet" href="css/main.css" />
-<link href="css/bootstrap.min.css" rel="stylesheet">
-<style>div{padding: 10px;font-size:16px;}</style>
+
+
+<link rel="stylesheet" href="css/reset.css">
+<link rel="stylesheet" href="css/style_2.css">
+<!-- <style>div{padding: 10px;font-size:16px;}</style> -->
 <title>ログイン</title>
 
 </head>
+
+
+
+
+
 <body>
 
-<header>
-  <nav class="navbar navbar-default">ログインしてください</nav>  
-  
-</header>
+<div>
+<button><a href="index_user.php">新規登録</a><br></button>
+<button><a href="login_kanri.php">管理者用</a><br></button>
+<!-- <button><a href="index_user.php" ><img src="trash.jpeg" alt=""></a><br>新規登録</button> -->
+<button><a href="select_ippan.php">一覧</a></button>
+
+<h2>一般用ログインページです</h2>
 
 
 
-<div class="user_reg">
 
-<a href="index_user.php">新規ユーザー登録はこちら！</a>
-<style>.user_reg{marigin-top:50px}</style>
-</div>
-
-<!-- lLOGINogin_act.php は認証処理用のPHPです。 -->
+<!-- login_act.php は認証処理用のPHPです。 -->
 <form name="form1" action="login_act.php" method="post">
-ID:<input type="text" name="lid" />
-PW:<input type="password" name="lpw" />
-<input type="submit" value="LOGIN" />
-
+ID:<input type="text" name="lid"><br>
+PW:<input type="password" name="lpw"><br>
+<input type="submit" value="LOGIN">
 </form>
+</div>
+<!-- <button class=btn> -->
+
+<!-- </button> -->
 
 
-
-
-<button class="ippan">
-<a class="navbar-brand" href="select_ippan.php">ユーザー登録されていない方</a>
-<style>button{margin-top:100px;font-size:20px;}</style>
-</button>
 
 </body>
 </html>

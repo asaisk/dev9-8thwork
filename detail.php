@@ -13,7 +13,7 @@ try {
   }
   
   //２．データ登録SQL作成
-  $stmt = $pdo->prepare("SELECT * FROM gs_bm_table WHERE id=:id");
+  $stmt = $pdo->prepare("SELECT * FROM gs_code_table WHERE id=:id");
   $stmt->bindvalue(":id",$id, PDO::PARAM_INT);
   $status = $stmt->execute();
   
@@ -26,14 +26,7 @@ try {
     exit("ErrorQuery:".$error[2]);
   }else{
        $row= $stmt->fetch();
-    //Selectデータの数だけ自動でループしてくれる
-    //  while( $result = $stmt->fetch(PDO::FETCH_ASSOC)){
-    //    $view .='<p>';
-    //    $view .='<a href="detail.php?id='.$result["id"].'">'; 
-    //    $view .= $result["name"]."[".$result["indate"]."]";
-    //    $view .='</a>';
-    //    $view .='</p>';
-    //  }
+    
   }
   
 ?>
@@ -43,17 +36,22 @@ try {
 <head>
   <meta charset="UTF-8">
   <title>POSTデータ登録</title>
-  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <!-- <link href="css/bootstrap.min.css" rel="stylesheet"> -->
+  <link href="css/style.css" rel="stylesheet">
   <style>div{padding: 10px;font-size:16px;}</style>
+  <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+
 </head>
 <body>
 
 <!-- Head[Start] -->
 <header>
-  <nav class="navbar navbar-default">
-    <div class="container-fluid">
-    <div class="navbar-header"><a class="navbar-brand" href="select.php">データ一覧</a></div>
-  </nav>
+  <!-- <nav class="navbar navbar-default">
+    <div class="container-fluid"> -->
+    <button><a class="navbar-brand" href="select.php">データ一覧</a></button>
+
+    
+  <!-- </nav> -->
 </header>
 <!-- Head[End] -->
 
@@ -61,18 +59,47 @@ try {
 <form method="post" action="update.php"> 
   <div class="jumbotron">
    <fieldset>
-    <legend>ランニング記録</legend>
+    <legend>プログラム記録</legend>
      <label>日付：<input type="text" name="date" value="<?=$row["date"]?>"></label><br>
      <label>名前：<input type="text" name="name" value="<?=$row["name"]?>"></label><br>
-     <label>場所：<input type="text" name="place" value="<?=$row["place"]?>"></label><br>
-     <label>距離：<input type="number" name="distance" value="<?=$row["distance"]?>"></label><br>
-     <label><textArea name="comment" rows="4" cols="40"><?=$row["comment"]?></textArea></label><br>
+     <label>種類：<input type="text" name="spec" value="<?=$row["spec"]?>"></label><br>
+     <label>題名：<input type="text" name="subject" value="<?=$row["subject"]?>"></label><br>
+     <label>ソース：<textArea name="source" id="source" rows="4" cols="40"><?=$row["source"]?></textArea></label><br>
+     <label>Link：<input type="text" name="link" value="<?=$row["link"]?>"></label><br>
+     
+
      <input type="submit" value="送信">
      <input type="hidden" name="id" value="<?=$id?>">
     </fieldset>
   </div>
 </form>
 <!-- Main[End] -->
+
+<button id="btn">Copy</button>
+
+<script>
+  
+  // $("textarea").on("click",function(){
+  // $(this).select();
+  // document.execCommand('copy');
+
+
+
+$("#btn").click(function(){
+    $("#source").select();
+    document.execCommand('copy');
+// });
+
+
+});
+
+
+
+
+
+    </script>
+
+
 
 
 </body>

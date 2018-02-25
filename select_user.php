@@ -50,20 +50,22 @@ if($status==false){
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>ユーザー登録状況</title>
-<link rel="stylesheet" href="css/range.css">
-<link href="css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+
 <style>div{padding: 10px;font-size:16px;}</style>
 </head>
 <body id="main">
 <!-- Head[Start] -->
 <header>
-  <nav class="navbar navbar-default">
-    <div class="container-fluid">
-      <div class="navbar-header">
-      <a class="navbar-brand" href="index_user.php">ユーザー登録</a>
-      <a class="navbar-brand" href="index.php">データ登録</a>
-    </div>
-  </nav>
+  <!-- <nav class="navbar navbar-default">
+    <div class="container-fluid"> -->
+      <!-- <div class="navbar-header"> -->
+      <button><a href="index_user.php">ユーザー登録</a></button>
+      <button><a class="navbar-brand" href="index.php">データ登録</a></button>
+      <button><a class="navbar-brand" href="select_kanri.php">管理者用ページ</a></button>
+
+    <!-- </div> -->
+  <!-- </nav> -->
 </header>
 <!-- Head[End] -->
 

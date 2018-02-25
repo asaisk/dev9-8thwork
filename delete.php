@@ -10,7 +10,7 @@ $pdo=db_con();
 
 
   //２．データ登録SQL作成
-  $stmt = $pdo->prepare("DELETE  FROM gs_bm_table WHERE id=:id");
+  $stmt = $pdo->prepare("DELETE  FROM gs_code_table WHERE id=:id");
   $stmt->bindvalue(":id",$id, PDO::PARAM_INT);
   $status = $stmt->execute();
   
@@ -22,17 +22,9 @@ $pdo=db_con();
     error_db_Info($stmt);    
 
   }else{
-      header("Location: select_1.php");
+      header("Location: select.php");
       exit();
-    //    <!-- $row= $stmt->fetch(); -->
-    //Selectデータの数だけ自動でループしてくれる
-    // while( $result = $stmt->fetch(PDO::FETCH_ASSOC)){
-    //   $view .='<p>';
-    //   $view .='<a href="detail.php?id='.$result["id"].'">'; 
-    //   $view .= $result["name"]."[".$result["indate"]."]";
-    //   $view .='</a>';
-    //   $view .='</p>';
-    // }
+    
   }
 
   ?>

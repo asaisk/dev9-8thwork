@@ -1,0 +1,49 @@
+@charset "UTF-8";
+
+html{
+    width:100%;
+}
+
+body{
+    background-image: url("gatag-00010756.jpg");
+    width:80%; 
+    margin-left:40%;
+     }
+
+input{
+         line-height:0px;
+         height:20px;
+         border-radius:10px;
+                
+     }
+
+form{
+         height:100px;
+         padding-top:200px;
+     }
+
+.title{
+       /* display:flex; */
+       width:80%;
+    } 
+button{
+   background-color:orange; 
+   border-radius:10px;
+   
+}
+h2{
+    color:yellowgreen;
+    font-size:20px;
+    font-weight:bold;
+    margin-top:50px;
+}
+   
+input[type="submit"]{
+    line-height: 15px;
+    padding-top:5px;
+    border-radius:10px;
+    margin-left:5px;
+    width:50px;
+    border:none;
+    background-color: orange;
+}

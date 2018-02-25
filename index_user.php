@@ -3,17 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <title>POSTユーザー登録</title>
-  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <!-- <link href="css/bootstrap.min.css" rel="stylesheet"> -->
+  <link href="css/style.css" rel="stylesheet">
   <style>div{padding: 10px;font-size:16px;}</style>
 </head>
 <body>
 
 <!-- Head[Start] -->
 <header>
-  <nav class="navbar navbar-default">
-    <div class="container-fluid">
-    <div class="navbar-header"><a class="navbar-brand" href="login.php">ログイン画面</a></div>
-  </nav>
+  <!-- <nav class="navbar navbar-default">
+    <div class="container-fluid"> -->
+    <button><a class="navbar-brand" href="login.php">ログイン画面</a></button>
+  <!-- </nav> -->
 </header>
 <!-- Head[End] -->
 

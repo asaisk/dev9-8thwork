@@ -5,33 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-  </head>
-  <body>
+    <link rel="stylesheet" href="css/style.css">
     
-  </body>
-  </html>
-  
-  <table id="table1" border='1' align=center width="1000">
-  <tr><th>日付</th><th>名前</th><th>場所</th><th>距離</th><th>コメント</th></tr>
+    </head>
+     
+<header>
+  <button><a class="navbar-brand" href="login.php">ログイン</a></button>
+  <button><a class="navbar-brand" href="index_user.php">新規登録</a></button>
 
-</html>  
+<div id="head_pic">
+  <img src="PC_pic.jpg" alt="pc_picture" width=900px height=300px>
+  <img src="pc_pic2.jpg" alt="pc_picture" width=500px height=300px>
+</div>
+
+</header>
+
+  <body>
+ <h1>一覧専用ページ</h1>
+    
+  
 
 <?php
 //1.  DB接続します
 
 include("functions.php");
 
-// try {
-//   $pdo = new PDO('mysql:dbname=gs_db;charset=utf8;host=localhost','root','');
-// } catch (PDOException $e) {
-//   exit('データベースに接続できませんでした。'.$e->getMessage());
-// }
-
+//↓短縮形です！
 $pdo=db_con();
 
 //２．データ登録SQL作成
 
-$stmt = $pdo->prepare("SELECT * FROM gs_bm_table");
+$stmt = $pdo->prepare("SELECT * FROM gs_code_table");
 $status = $stmt->execute();
 
 
@@ -51,70 +55,22 @@ if($status==false){
 
   //Selectデータの数だけ自動でループしてくれる
   while( $result = $stmt->fetch(PDO::FETCH_ASSOC)){
-    $view .='<tr>';
+    $view .='<ul>';
+    $view .= "<li>".$result["date"]."</li>"; 
+    $view .= "<li>".$result["name"]."</li>";
+    $view .= "<li>".$result["spec"]."</li>";
+    $view .= "<li>".$result["subject"]."</li>";
+    $view .= "<li>".$result["source"]."</li>";
+    $view .= "<li>".$result["link"]."</li>";
+    $view .='</ul>';
+  
 
-    
-    // $view .='<a href="detail.php?id='.$result["id"].'">';  これは何？
-      //  $view .= $result["date"].$result["name"].$result["place"].$result["distance"].$result["comment"];
-   
-
-      // $view .= "<td><tr>".$result["date"]."</tr></td>";
-      // $view .= "<td><tr></tr></td>";
-      $view .= "<td>".$result["date"]."</td>"; 
-      $view .= "<td>".$result["name"]."</td>";
-     // $view .= "<td>".$result["name"]."</td>";
-      $view .= "<td>".$result["place"]."</td>";
-      $view .= "<td>".$result["distance"]."</td>";
-      $view .= "<td>".$result["comment"]."</td>";
-    // $view .= .$result["name"].$result["place"].$result["date"];
-    // $view .= $result["place"]."[".$result["indate"]."]";
-    // $view .= $result["name"]."[".$result["indate"]."]";
-  //   $view .='<td></a>';
-  //   $view .='';
-
-  //  $view .='<a href="delete.php?id='.$result["id"].'">'; 
-  //  $view .= '削除';
-  //  $view .='</a></td>';
-
-
-    $view .='</tr>';
-  }
+}
 } 
 
-
 ?>
-
-
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ランニング記録表示</title>
-<link rel="stylesheet" href="css/range.css">
-<link href="css/bootstrap.min.css" rel="stylesheet">
-<!-- <style>div{padding: 10px;font-size:16px;}</style> -->
-</head>
-<body id="main">
-<!-- Head[Start] -->
-<header>
-  <nav class="navbar navbar-default">
-    <div class="container-fluid">
-      <div class="navbar-header">
-      <a class="navbar-brand" href="index_user.php">ユーザー登録</a>
-      <p>データ一覧です！</p>
-    </div>
-  </nav>
-</header>
-<!-- Head[End] -->
-
-<!-- Main[Start] -->
-<div>
+   
     <div class="container jumbotron"><?=$view?></div>
-  </div>
-</div>
-<!-- Main[End] -->
-
-</body>
-</html>
+ 
+    </body>
+  </html>

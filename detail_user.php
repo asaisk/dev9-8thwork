@@ -43,7 +43,8 @@ try {
 <head>
   <meta charset="UTF-8">
   <title>POSTデータ登録</title>
-  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <!-- <link href="css/bootstrap.min.css" rel="stylesheet"> -->
+  <link href="style.css" rel="stylesheet">
   <style>div{padding: 10px;font-size:16px;}</style>
 </head>
 <body>

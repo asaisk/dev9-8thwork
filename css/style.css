@@ -1,0 +1,115 @@
+@charset "utf-8";
+body {
+    /* background-color:gray; */
+    background-image: url("../gatag-00010756.jpg");background-repeat: repeat;
+    max-width:700px;
+}
+
+label {
+   font-size: 24px; 
+   font-weight:900;
+   color:orange;
+      }
+
+#head_pic{
+display:flex;
+position:relative;
+margin-top:10px;
+}
+
+option{
+    color:green;
+    font-size:15px;
+    margin-left:15px;
+    background-color:beige;
+}
+legend {
+        font-size: 36px; 
+        font-weight:900;
+        color:orange;
+        margin-bottom:50px;
+        margin-left:100px;
+        width:500px;
+        }    
+
+/* .jumbotron{
+    line-height: 50px;
+    padding-top:0px;
+    border-radius:20px;
+    margin-left:0px;
+    width:500px;
+} */
+
+input[type="text"]{
+    line-height: 20px;
+    padding-top:5px;
+    border-radius:10px;
+    margin-left:25px;
+    width:480px;
+    border:none;
+}
+
+input[type="submit"]{
+    line-height: 15px;
+    padding-top:5px;
+    border-radius:10px;
+    margin-left:5px;
+    width:50px;
+    border:none;
+    background-color: orange;
+}
+
+select {
+    line-height: 20px;
+    padding-top:5px;
+    border-radius:10px;
+    margin-left:25px;
+    width:480px;
+    border:none;
+   
+}
+
+h1{
+    font-size:"20px";
+    color:yellowgreen;
+    /* font-weight: 300; */
+    position:absolute;
+    top:10%;
+    left:5%;
+}
+h2{
+    font-size:"20px";
+    color:yellowgreen;
+}
+
+
+
+
+textarea {
+    line-height: 20px;
+    padding-top:5px;
+    border-radius:10px;
+    margin-left:0px;
+    width:470px;
+    border:none;
+}
+
+ul{
+    color:black;
+    background-color: orange;
+    border-radius:10px;
+    width:800px;
+    margin-left:30%;
+    margin-bottom:50px;
+    text-decoration: none;
+    }
+
+
+ /* a { text-decoration: none; }  */
+
+ button{
+     height:35px;
+     background-color:orange;
+     border-radius:10px;
+     border:none;
+      }
