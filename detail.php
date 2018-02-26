@@ -75,7 +75,7 @@ try {
 </form>
 <!-- Main[End] -->
 
-<button id="btn">Copy</button>
+<button id="btn">Copy to Clipboard</button>
 
 <script>
   
